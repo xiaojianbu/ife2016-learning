@@ -1,0 +1,61 @@
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea{
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+img{
+	border: 1px solid #999;
+	display: block;
+	width: 80px;
+	height: 80px;
+}
+
+.div-main {
+	background: #eee;
+	padding: 20px;
+	border: 1px solid #999;
+	overflow: auto;
+	min-width: 600px;
+}
+
+.div-left {
+	width: 200px;
+	box-sizing: border-box;
+	float: left;
+	padding: 20px;
+	border: 1px solid #999;
+	position: relative;
+	background: #fff;
+}
+
+.div-left p {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.div-right {
+	width: 120px;
+	box-sizing: border-box;
+	float: right;
+	padding: 20px;
+	border: 1px solid #999;
+	background: #fff;
+}
+
+.div-right img {
+	margin-bottom: 20px;
+}
+
+.div-right img:last-child {
+	margin-bottom: 0px;
+}
+
+.container {
+	margin-left: 220px;
+	margin-right: 140px;
+	padding: 20px;
+	border: 1px solid #999;
+	background: #fff;
+}
