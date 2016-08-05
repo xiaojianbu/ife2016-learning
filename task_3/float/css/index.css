@@ -17,6 +17,7 @@ img{
 	border: 1px solid #999;
 	overflow: auto;
 	min-width: 600px;
+	margin: 20px 20px;
 }
 
 .div-left {
