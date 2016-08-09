@@ -6,7 +6,7 @@ body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea{
 }
 html body {
 	width: 100%;
-	min-width: 480px;
+	min-width: 750px;
 }
 
 /*header*/
@@ -92,8 +92,8 @@ html body {
 	width: 118px;
 	display: inline-block;
 	text-align: right;
-	font-size: 12px;
 	margin-right: 12px;
+	vertical-align: top;
 }
 
 .aside .input p {
