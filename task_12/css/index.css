@@ -1,0 +1,110 @@
+/*reset*/
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea,hr{
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.table {
+	margin-bottom: 40px;
+}
+
+
+table tr {
+	text-align: left;
+}
+
+table tr:nth-child(odd) {
+	background: gray;
+}
+
+table tr:nth-child(even) {
+	background: #fff;
+}
+
+table tr:nth-child(-n+4) {
+	color: red;
+}
+
+table tr:first-child {
+	background: #000;
+	color: #fff;
+}
+
+input {
+	width: 200px;
+	margin-bottom: 40px;
+	border: 2px solid #ddd;
+	transition: width 2s, border-color 2s;
+}
+
+input:focus {
+	width: 400px;
+	border-color: blue;
+}
+
+.container {
+	width: 400px;
+	height: 200px;
+	margin-bottom: 40px;
+	background: green;
+	position: relative;
+}
+
+.container ul {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.container ul li {
+	list-style: none;
+	float: left;
+}
+
+
+.container ul li a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: #aaa;
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	margin-left: 5px;
+	transition: background 3s;
+}
+
+#item-1 {
+	display: none;
+	width: 400px;
+	height: 200px;
+}
+
+#item-2 {
+	display: none;
+	width: 400px;
+	height: 200px;
+}
+
+#item-3 {
+	display: none;
+	width: 400px;
+	height: 200px;
+}
+
+#item-1:target {
+	display: block;
+	background: green;
+}
+
+#item-2:target {
+	display: block;
+	background: blue;
+}
+
+#item-3:target {
+	display: block;
+	background: #000;
+}
