@@ -1,0 +1,9 @@
+.aqi-chart-wrap {
+	display: flex;
+	width: 1000px;
+	height: 600px;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+
