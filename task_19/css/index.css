@@ -1,0 +1,18 @@
+#container {
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	flex-flow: wrap;
+	align-items: flex-end;
+}
+/*给队列中的每个新添加的元素加上一个类*/
+.queue {
+	font-size: 12px;
+	color: #fff;
+	background: red;
+	width: 20px;
+	margin-right: 5px;
+	line-height: 30px;
+	text-align: center;
+/*	transition: height, 3s;*/
+}
