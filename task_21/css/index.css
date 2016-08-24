@@ -1,0 +1,102 @@
+/*#container {
+	display: flex;
+	width: 1000px;
+	height: 1000px;
+	justify-content: flex-start;
+	flex-flow: wrap;
+}*/
+/*给队列中的每个新添加的元素加上一个类*/
+/*.queue {
+	font-size: 12px;
+	color: #fff;
+	background: red;
+	min-width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.color{
+	font-size: 12px;
+	color: #000;
+	background: red;
+	min-width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	line-height: 30px;
+	text-align: center;
+}*/
+
+input:focus {
+	border: 2px solid blue;
+}
+
+#tag-container {
+	display: flex;
+	width: 1000px;
+	height: 50px;
+	margin: 20px 0 20px 0;
+	justify-content: flex-start;
+	flex-flow: wrap;
+}
+
+.tag-queue {
+	font-size: 12px;
+	color: #fff;
+	background: blue;
+	min-width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	line-height: 30px;
+	text-align: center;
+	transition: all 1s;
+}
+
+.tag-queue:hover {
+	font-size: 12px;
+	color: #fff;
+	background: red;
+	min-width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.tag-queue:hover::before {
+	content: "点击删除";
+}
+
+button {
+	display: block;
+	font-size: 12px;
+	color: #000;
+	background: #fff;
+	min-width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+#hobby-container {
+	display: flex;
+	width: 1000px;
+	height: 50px;
+	margin: 20px 0 20px 0;
+	justify-content: flex-start;
+	flex-flow: wrap;
+}
+
+.hobby-queue {
+	font-size: 12px;
+	color: #fff;
+	background: yellow;
+	min-width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	line-height: 30px;
+	text-align: center;
+}
