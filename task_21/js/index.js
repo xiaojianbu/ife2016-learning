@@ -1,100 +1,151 @@
-var numInput = document.getElementById("num-input");
-var leftIn = document.getElementById("left-in");
-var rightIn = document.getElementById("right-in");
-var leftOut = document.getElementById("left-out");
-var rightOut = document.getElementById("right-out");
-var container = document.getElementById("container");
-var inquire = document.getElementById("inquire");
+var tagInput = document.getElementById("tag-input");
+var tagContainer = document.getElementById("tag-container");
+var re = /,|，|\s$/;
+tagInput.addEventListener("keyup", function (ev) {
+	var val = this.value;
+	 if (13 === ev.keyCode || re.test(val)) {
+	 	val = trim(val.replace(re, ""));
+	 	// console.log(val);
+	 	if (!!val) {
+	 		var tagList = tagContainer.childNodes;
+	 		//无tag直接添加
+	 		if (tagList.length == 0) {		 			
+	 			tagContainer.appendChild(createNewChild(val, " tag-queue"));
+	 			// this.value = "";
+	 		} else {
+	 			if (!isrepeat(val,tagList)) {
+	 				if (numberIsTen (tagList)) {
+	 					tagContainer.removeChild(tagContainer.firstChild);
+	 					tagContainer.appendChild(createNewChild(val, " tag-queue"));
+	 				} else {
+	 					tagContainer.appendChild(createNewChild(val, " tag-queue"));
+	 				}
+	 			}
+	 		}
+	 	}
+	 	this.value = "";
+	 }  
+}, false);
 
-function leftInFun () {
-	var re = /[^0-9a-zA-Z\u4E00-\u9FA5]/; 
-	var inList = numInput.value.split(re);
-	for (var i = 0; i < inList.length; i++) {
-		if (inList[i].length == 0) {
-			inList.splice(i,1);
-		}
-	}
-	for (var i = 0; i < inList.length; i++) {
-		var newChild = document.createElement("div");
-		var newText = document.createTextNode(inList[i]);
-		newChild.appendChild(newText);
-		newChild.className += " queue";
-		//container有子节点则添加到第一个子节点的前面，否则添加为第一个子节点
-		if (container.hasChildNodes()) {
-			container.childNodes[0].parentNode.insertBefore(newChild,container.firstChild);
-		} else {
-			container.appendChild(newChild);
-		} 
-	}
-}
-
-function rightInFun () {
-	var re = /[^0-9a-zA-Z\u4E00-\u9FA5]/; 
-	var inList = numInput.value.split(re);
-	for (var i = 0; i < inList.length; i++) {
-		if (inList[i].length == 0) {
-			inList.splice(i,1);
-		}
-	}
-	for (var i = 0; i < inList.length; i++) {
-		var newChild = document.createElement("div");
-		var newText = document.createTextNode(inList[i]);
-		newChild.appendChild(newText);
-		newChild.className += " queue";
-		//把新节点添加到container最后面
-		container.appendChild(newChild);
-	}	
-}
-
-function leftOutFun () {
-	//container有子节点则移除第一个子节点，否则弹出提示框表明没有子节点
-	if (container.hasChildNodes()) {
-		var oldChild = container.removeChild(container.firstChild);
-		alert("移除的元素中数值是：" + oldChild.innerHTML);
-	} else {
-		alert("队列是空的");
-	}
-}
-
-function rightOutFun () {
-	//container有子节点则移除最后一个子节点，否则弹出提示框表明没有子节点
-	if (container.hasChildNodes()) {
-		var oldChild = container.removeChild(container.childNodes[container.childNodes.length - 1]);
-		alert("移除的元素中数值是：" + oldChild.innerHTML);
-	} else {
-		alert("队列是空的");
-	}
-}
-
-function queueDel () {
-	// 给container中的所有子节点绑定删除事件
-	container.onclick = function (ev) {   
-		var queue = document.getElementsByClassName("queue");
+tagContainer.addEventListener("click", function (ev) {
+	  	var tagQueue = document.getElementsByClassName("tag-queue");
 	    var ev = ev || window.event;  
 	    target = ev.target || ev.srcElement;   
-	    for (var i = 0; i < queue.length; i++) {   
-	        if (queue[i] === target) {   
-	           var oldChild = container.removeChild(container.childNodes[i]);
-	           alert("移除的元素中数值是：" + oldChild.innerHTML);
+	    for (var i = 0; i < tagQueue.length; i++) {   
+	        if (tagQueue[i] === target) {   
+	        	tagContainer.removeChild(tagContainer.childNodes[i]);
 	        }   
-	    }   
-	}  
+	    }  
+}, false);
+
+
+
+
+
+
+//创建新的带有className的子元素
+function createNewChild (val, className) {
+	var newDiv = document.createElement("div");
+	var newText = document.createTextNode(val);
+	newDiv.appendChild(newText);
+	newDiv.className += className;
+	return newDiv; 
 }
 
-function inquireFun () {
-	//每次先复原
-	for (var i = 0; i < container.childNodes.length; i++) {
-		if (container.childNodes[i].innerHTML.search(re) != -1) {
-			container.childNodes[i].className = "queue";
+//判断是否有10个
+function numberIsTen (list) {
+	if (list.length == 10) {
+		return true;
+	}
+	return false;
+}
+//判断是否有重复
+function isrepeat (val,list) {
+	// var flag = 0;//flag为零时，不重复
+	for (var i = 0; i < list.length; i++) {
+		if (list[i].innerHTML == val) {
+			return true;
+		}
+	}	
+	return false;  
+}
+//去掉空字符
+function trim(str) {
+    // attetion to condition test
+    var start = 0,
+        end = str.length - 1
+    while (start < end && str[start] === ' ')
+        start++
+    while (start < end && str[end] === ' ')
+        end--
+    return str.substring(start, end + 1)
+}
+
+
+var hobby =document.getElementById("hobby");
+var btn = document.getElementsByTagName("button")[0];
+var hobbyContainer = document.getElementById("hobby-container");
+
+hobbyContainer.addEventListener("click", function (ev) {
+	  	var tagQueue = document.getElementsByClassName("hobby-queue");
+	    var ev = ev || window.event;  
+	    target = ev.target || ev.srcElement;   
+	    for (var i = 0; i < tagQueue.length; i++) {   
+	        if (tagQueue[i] === target) {   
+	        	hobbyContainer.removeChild(hobbyContainer.childNodes[i]);
+	        }   
+	    }  
+}, false);
+
+btn.addEventListener("click", btnFun, false);
+function btnFun () {
+	var re = /[^0-9a-zA-Z\u4E00-\u9FA5]/; 
+	var inList = hobby.value.split(re);//通过间隔分隔输入
+	//去空格
+	for (var i = 0; i < inList.length; i++) {
+		if (inList[i].length == 0) {
+			inList.splice(i,1);
 		}
 	}
-	//查询到时 添加类color
-	var inquireInputValue = document.getElementsByTagName("input")[0].value;
-	var re = new RegExp(inquireInputValue);
-	for (var i = 0; i < container.childNodes.length; i++) {
-		if (container.childNodes[i].innerHTML.search(re) != -1) {
-			container.childNodes[i].className += " color";
+	//输入去重
+	inList = unique(inList);
+	for (var i = 0; i < hobbyContainer.childNodes.length; i++) {
+		for (var j = 0; j < inList.length; j++) {
+			if (hobbyContainer.childNodes[i].innerHTML == inList[j]) {
+				inList[j] = "";
+				break;
+			}
 		}
+	}
+	//去空格
+	inList = inList.filter(function (n) {
+		  return n;
+	})
+	// console.log(inList);
+	if (inList.length != 0) {
+		//如果长度不大于10直接添加
+		if (inList.length + hobbyContainer.childNodes.length <= 10) {
+			for (var i = 0; i < inList.length; i++) {
+				// var newChild = document.createElement("div");
+				// var newText = document.createTextNode(inList[i]);
+				// newChild.appendChild(newText);
+				// newChild.className += " hobby-queue";
+				//把新节点添加到container最后面
+				hobbyContainer.appendChild(createNewChild(inList[i], " hobby-queue"));
+		    } 
+		} else {
+			for (var i = 0; i < inList.length; i++) {
+				// var newChild = document.createElement("div");
+				// var newText = document.createTextNode(inList[i]);
+				// newChild.appendChild(newText);
+				// newChild.className += " hobby-queue";
+				//把新节点添加到container最后面
+				hobbyContainer.appendChild(createNewChild(inList[i], " hobby-queue"));
+				if (hobbyContainer.childNodes.length > 10) {
+					hobbyContainer.removeChild(hobbyContainer.firstChild);
+				}
+		    } 
+		}	
 	}
 }
 
@@ -102,13 +153,14 @@ function inquireFun () {
 
 
 
-function init () {
-	leftIn.addEventListener("click", leftInFun, false);
-	rightIn.addEventListener("click", rightInFun, false);
-	leftOut.addEventListener("click", leftOutFun, false);
-	rightOut.addEventListener("click", rightOutFun, false);
-	container.addEventListener("click", queueDel, false);
-	inquire.addEventListener("click", inquireFun, false);
-}
 
-init();
+// 思路：获取没重复的最右一值放入新数组
+function unique(array) {
+  var r = [];
+  for(var i = 0, l = array.length; i < l; i++) {
+    for(var j = i + 1; j < l; j++)
+      if (array[i] === array[j]) j = ++i;
+    r.push(array[i]);
+  }
+  return r;
+}

@@ -53,7 +53,7 @@ input:focus {
 	transition: all 1s;
 }
 
-.tag-queue:hover {
+.tag-queue:hover,.hobby-queue:hover {
 	font-size: 12px;
 	color: #fff;
 	background: red;
@@ -64,7 +64,7 @@ input:focus {
 	text-align: center;
 }
 
-.tag-queue:hover::before {
+.tag-queue:hover::before, .hobby-queue:hover::before {
 	content: "点击删除";
 }
 
@@ -99,4 +99,5 @@ button {
 	margin-right: 5px;
 	line-height: 30px;
 	text-align: center;
+	transition: all 1s;
 }
