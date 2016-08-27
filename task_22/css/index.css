@@ -1,0 +1,29 @@
+.container {
+    width: 400px;
+    height: 80px;
+    border: 1px solid #000;
+    display: flex;
+}
+
+.container-1 {
+    height: 60px;
+    flex: 1;
+    border: 1px solid #000;
+    margin: 10px 5px;
+    display: flex;
+}
+
+.container-2 {
+    height: 40px;
+    flex: 1;
+    border: 1px solid #000;
+    margin: 10px 5px;
+    display: flex;
+}
+
+.container-3 {
+    height: 20px;
+    flex: 1;
+    border: 1px solid #000;
+    margin: 10px 5px;
+}
