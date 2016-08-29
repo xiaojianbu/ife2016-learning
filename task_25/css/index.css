@@ -1,0 +1,25 @@
+.hide {
+	display: none;
+}
+
+.show{
+	display: block;
+}
+
+.img-1 {
+	list-style-image: url("../images/icon-1.png");
+}
+
+.img-2 {
+	list-style-image: url("../images/icon-2.png");
+}
+
+.bcg-color-blue {
+	background-color: blue;
+}
+.bcg-color-white{
+	background-color: white;
+}
+.bcg-color-red {
+	background-color: red;
+}
